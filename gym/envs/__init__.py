@@ -374,6 +374,8 @@ for reward_type in ['sparse', 'dense']:
         max_episode_steps=50,
     )
 
+
+
     # Hand
     register(
         id='HandReach{}-v0'.format(suffix),
@@ -573,6 +575,17 @@ for reward_type in ['sparse', 'dense']:
         kwargs=_merge({'target_position': 'random', 'target_rotation': 'xyz', 'touch_get_obs': 'sensordata'}, kwargs),
         max_episode_steps=100,
     )
+# Robotics-customize
+# ----------------------------------------
+
+#Fetch
+
+    register(
+        id='FetchPush{}-v2'.format(suffix),
+        entry_point='gym.envs.robotics_customize:FetchPushCustomizeEnv',
+        kwargs=kwargs,
+        max_episode_steps=50,
+    )
 
 # Atari
 # ----------------------------------------
@@ -683,3 +696,4 @@ register(
     entry_point='gym.envs.unittest:MemorizeDigits',
     reward_threshold=20,
     )
+
